@@ -1,0 +1,50 @@
+.content {
+    padding: 0 10%;
+}
+
+.BP {
+    color: #ffb400;
+}
+
+.YULL {
+    color: #f3705e;
+}
+
+.bpXyull {
+    font-size: 90px;
+    font-weight: bold;
+    color: #253e52;
+}
+
+.left {
+    text-align: left;
+}
+
+.left .midtitle{
+    font-size: 48px;
+    font-weight: bold;
+    color: #447daa;
+}
+
+.content ol {
+    font-size: 30px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.content li {
+    font-weight: bold;
+    color: #253e52;
+}
+
+.grayUnderline {
+    width: 12em;
+    margin-top: -30px;
+    height: 10px;
+    background-color: #dcdcdc;
+}
+
+.widthLimit {
+    margin-top: -20px;
+    width: 11em;
+}
