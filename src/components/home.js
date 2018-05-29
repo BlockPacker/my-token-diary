@@ -4,16 +4,15 @@ import './home.css'
 class Home extends Component {
     render() {
         return (
-            <div class='content'>
-                <span class='bpXyull'>
-                    <span class='BP'>BP</span> Crew X <span class='YULL'>YULL</span> STUDIO
-                    <div class='grayUnderline'></div>
+            <div className='content'>
+                <span className='bpXyull'>
+                    <span className='BP'>BP</span> Crew X <span className='YULL'>YULL</span> STUDIO
+                    {/* <div className='grayUnderline'></div> */}
                 </span>
                 <br/>
-                <div class='left'>
-                    <span class='midtitle'>
+                <div className='left'>
+                    <span className='midtitle'>
                         투표 인증하고 토큰받자!
-                        <div class='grayUnderline widthLimit'></div>
                     </span>
                     <ol>
                         <li>2018지방선거 투표자</li>

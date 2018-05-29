@@ -14,6 +14,8 @@
     font-size: 90px;
     font-weight: bold;
     color: #253e52;
+    text-decoration: underline;
+    text-decoration-color: #dcdcdc;
 }
 
 .left {
@@ -24,6 +26,8 @@
     font-size: 48px;
     font-weight: bold;
     color: #447daa;
+    text-decoration: underline;
+    text-decoration-color: #dcdcdc;
 }
 
 .content ol {

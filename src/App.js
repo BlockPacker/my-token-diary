@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Menu from './components/menu.js';
-import Home from './components/home.js';
 
 class App extends Component {
+
   render() {
     return (
       // <div className="App">
@@ -18,7 +17,7 @@ class App extends Component {
       // </div>
       <div>
         <Menu/>
-        <Home/>
+        {/* <Home/> */}
       </div>
     );
   }
