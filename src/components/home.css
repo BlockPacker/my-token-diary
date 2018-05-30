@@ -52,3 +52,8 @@
     margin-top: -20px;
     width: 11em;
 }
+
+.bu {
+    font-weight: bold;
+    text-decoration: underline;
+}
