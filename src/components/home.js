@@ -5,10 +5,10 @@ class Home extends Component {
     render() {
         return (
             <div className='content'>
+                <span className='midtitle'>
+                    투표 인증하고 토큰받자!
+                </span>
                 <div className='left'>
-                    <span className='midtitle'>
-                        투표 인증하고 토큰받자!
-                    </span>
                     <ol>
                         <li>2018 지방선거 참여자(KLEV18)</li>
                         <p>
