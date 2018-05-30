@@ -10,7 +10,7 @@ class Vote extends Component {
                 <form>
                     {/* 이더리움 지갑 주소 로그인<br/> */}
                     <input type='text' placeholder='이더리움 지갑 주소를 적어주세요'/>
-                    <input type='text' placeholder='키번호를 적어주세요'/>
+                    <input type='text' placeholder='인증 url을 적어주세요.'/>
                 </form>
             </div>
         )
