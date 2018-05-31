@@ -25,7 +25,7 @@ class Menu extends Component {
                         <span className='menuItem loginMenu'>로그인</span>
                     </div>
                 </div>
-                <div class='content'>
+                <div className='content'>
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/diary' component={Diary}/>
                     <Route exact path='/vote' component={Vote}/>

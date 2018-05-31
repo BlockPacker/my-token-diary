@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Faq extends Component {
   render() {
     return (
-      <div class='content left'>
+      <div className='content left'>
         <ol>
           <li>MyTokenDiary란?</li>
           <p>
