@@ -29,3 +29,7 @@
 .token {
   width: 300px;
 }
+
+.notExist {
+  opacity: 0.1;
+}
