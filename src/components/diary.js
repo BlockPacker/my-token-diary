@@ -35,6 +35,9 @@ class Diary extends Component {
   }
 
   componentWillMount() {
+    this.setState({
+      walletAddress: window.localStorage.getItem('ethAddress')
+    })
     getWeb3.then(results => {
       this.setState({
         web3: results.web3
@@ -45,6 +48,12 @@ class Diary extends Component {
   }
 
   instantiateContract = () => {
+    if(!this.state.web3.utils.isAddress(this.state.walletAddress))
+    {
+      alert('지갑 주소가 유효하지 않습니다!');
+      return false;
+    }
+    window.localStorage.setItem('ethAddress', this.state.walletAddress);
     const eth = new Eth(this.state.web3.currentProvider);
     console.log(this.state.web3.currentProvider);
     const voteContract = new eth.Contract(JSON.parse(KLEV_ABI), KLEV_CONTRACT_ADDRESS);
