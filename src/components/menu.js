@@ -13,7 +13,7 @@ class Menu extends Component {
             <div>
                 <div className='menuWrapper'>
                     <div className='ib'>
-                        <span className='teamTitle'>BP Crew</span>
+                        <span className='teamTitle'>MyTokenDiary</span>
                     </div>
                     <div className='ib'>
                         <span className='menuItem'><Link to='/'>홈</Link></span>
