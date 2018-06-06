@@ -30,48 +30,32 @@ class Vote extends Component {
   }
 
     
-    componentWillMount () {
-        this.setState({
-            etherAddress: window.localStorage.getItem('ethAddress')
-        })
-    }
+  componentWillMount () {
+      this.setState({
+          etherAddress: window.localStorage.getItem('ethAddress')
+      })
+  }
     
 
-    handleEthChange(event) {
-        this.setState({etherAddress: event.target.value});
-    }
+  handleEthChange(event) {
+      this.setState({etherAddress: event.target.value});
+  }
 
   handleVoteChange(event) {
     this.setState({ voteUrl: event.target.value });
   }
 
-    handleRecoChange = (event) => {
-        this.setState({recommenderAddress: event.target.value});
-    }
+  handleRecoChange = (event) => {
+      this.setState({recommenderAddress: event.target.value});
+  }
     
-    handleSubmit(event) {
-        if(!this.state.web3.utils.isAddress(this.state.walletAddress))
-        {
-            alert('지갑 주소가 유효하지 않습니다!');
-            return false;
-        }
-        window.localStorage.setItem('ethAddress', this.state.etherAddress);
-        db.collection('vote').add({
-            ether_address: this.state.etherAddress,
-            recommender_address: this.state.recommenderAddress,
-            user: null,
-            vote_url: this.state.voteUrl,
-            insert_time: Date.now(),
-            done: false
-        }).then(function(docRef) {
-            console.log('Document written with ID: ', docRef.id);
-        }).catch(function(error){
-            console.error('Error adding document: ', error);
-        });
-        event.preventDefault();
-    }
-
   handleSubmit(event) {
+    if(!this.state.web3.utils.isAddress(this.state.walletAddress))
+    {
+      alert('지갑 주소가 유효하지 않습니다!');
+      return false;
+    }
+    window.localStorage.setItem('ethAddress', this.state.etherAddress);
     db.collection('vote').add({
       ether_address: this.state.etherAddress,
       recommender_address: this.state.recommenderAddress,
@@ -79,9 +63,9 @@ class Vote extends Component {
       vote_url: this.state.voteUrl,
       insert_time: Date.now(),
       done: false
-    }).then(function (docRef) {
+    }).then(function(docRef) {
       console.log('Document written with ID: ', docRef.id);
-    }).catch(function (error) {
+    }).catch(function(error){
       console.error('Error adding document: ', error);
     });
     event.preventDefault();
