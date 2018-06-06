@@ -29,6 +29,14 @@ class Vote extends Component {
         this.handleVoteChange = this.handleVoteChange.bind(this);
     }
 
+    
+    componentWillMount () {
+        this.setState({
+            etherAddress: window.localStorage.getItem('ethAddress')
+        })
+    }
+    
+
     handleEthChange(event) {
         this.setState({etherAddress: event.target.value});
     }
@@ -42,6 +50,12 @@ class Vote extends Component {
     }
     
     handleSubmit(event) {
+        if(!this.state.web3.utils.isAddress(this.state.walletAddress))
+        {
+            alert('지갑 주소가 유효하지 않습니다!');
+            return false;
+        }
+        window.localStorage.setItem('ethAddress', this.state.etherAddress);
         db.collection('vote').add({
             ether_address: this.state.etherAddress,
             recommender_address: this.state.recommenderAddress,
