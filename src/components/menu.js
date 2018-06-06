@@ -6,6 +6,7 @@ import Home from './home.js';
 import Vote from './vote.js';
 import Diary from './diary.js';
 import Faq from './faq.js';
+import Admin from './admin.js';
 
 class Menu extends Component {
     render(){
@@ -26,10 +27,11 @@ class Menu extends Component {
                     </div>
                 </div>
                 <div className='content'>
-                    <Route exact path='/' component={Home}/>
-                    <Route exact path='/diary' component={Diary}/>
-                    <Route exact path='/vote' component={Vote}/>
-                    <Route exact path='/faq' component={Faq}/>
+                    <Route path='/' exact component={Home}/>
+                    <Route path='/diary' component={Diary}/>
+                    <Route path='/vote' component={Vote}/>
+                    <Route path='/faq' component={Faq}/>
+                    <Route path='/admin' component={Admin}/>
                 </div>
             </div>
         );
