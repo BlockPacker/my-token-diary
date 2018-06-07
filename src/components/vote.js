@@ -74,6 +74,11 @@ class Vote extends Component {
     event.preventDefault();
   }
 
+  copy = () => {
+   this.refAddress.select();
+   window.document.execCommand('copy')
+  }
+
   render() {
     return (
       <div className='content'>
@@ -85,7 +90,7 @@ class Vote extends Component {
           <a className='tutorial' href='https://steemit.com/mytokendiary/@ryugihyeok/mytokendiary-feat-metamask-1-2'>MetaMask 지갑 만들기</a><br />
           <a className='tutorial' href='https://steemit.com/mytokendiary/@ryugihyeok/mytokendiary-feat-facebook-instagram-1-2'>인증샷 URL 복사하기</a><br />
           <a className='tutorial' href='https://steemit.com/mytokendiary/@ryugihyeok/mytokendiary-mytokendiary'>MyTokenDiary란</a><br/>
-          <span className='red-text'>후원 주소 : 0xE484C512c156C7F30C85CF432b8E2E70Fd499058</span>
+          <span className='red-text'>후원 주소 : <input id='ref' ref={refAddress => this.refAddress = refAddress} value='0xE484C512c156C7F30C85CF432b8E2E70Fd499058'/></span><button onClick={this.copy}>후원주소 복사하기</button>       
         </div>
         <form onSubmit={this.handleSubmit}>
           {/* 이더리움 지갑 주소 로그인<br/> */}
