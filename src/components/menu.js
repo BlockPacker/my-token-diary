@@ -22,9 +22,9 @@ class Menu extends Component {
             <span className='menuItem'><Link to='/vote'>인증</Link></span>
             <span className='menuItem'><Link to='/faq'>FAQ</Link></span>
           </div>
-          <div className='right'>
+          {/* <div className='right'>
             <span className='menuItem loginMenu'>로그인</span>
-          </div>
+          </div> */}
         </div>
         <div className='content'>
           <Route path='/' exact component={Home} />
