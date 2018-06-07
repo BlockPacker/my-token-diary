@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import getWeb3 from '../utils/getWeb3';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -24,6 +25,7 @@ class Vote extends Component {
       etherAddress: '',
       voteUrl: '',
       recommenderAddress: '',
+      web3: null,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,6 +39,13 @@ class Vote extends Component {
       this.setState({
           etherAddress: window.localStorage.getItem('ethAddress')
       })
+      getWeb3.then(results => {
+        this.setState({
+          web3: results.web3
+        });
+      }).catch((err) => {
+        console.log(err);
+      });
   }
     
 
@@ -53,7 +62,7 @@ class Vote extends Component {
   }
     
   handleSubmit(event) {
-    if(!this.state.web3.utils.isAddress(this.state.walletAddress))
+    if(!this.state.web3.utils.isAddress(this.state.etherAddress))
     {
       alert('지갑 주소가 유효하지 않습니다!');
       return false;
