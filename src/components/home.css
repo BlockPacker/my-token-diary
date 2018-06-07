@@ -23,7 +23,7 @@
 }
 
 .midtitle{
-    font-size: 48px;
+    font-size: 46px;
     font-weight: bold;
     color: #447daa;
     text-decoration: underline;
@@ -31,7 +31,7 @@
 }
 
 .content ol {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 500;
     color: #333333;
 }
@@ -59,6 +59,6 @@
 }
 
 .homeTitle {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
 }
