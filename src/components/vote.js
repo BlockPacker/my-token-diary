@@ -14,6 +14,8 @@ firebase.initializeApp({
   messagingSenderId: "403467372211"
 });
 const db = firebase.firestore();
+const settings = {timestampsInSnapshots: true};
+db.settings(settings);
 
 class Vote extends Component {
   constructor(props) {
@@ -27,6 +29,7 @@ class Vote extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEthChange = this.handleEthChange.bind(this);
     this.handleVoteChange = this.handleVoteChange.bind(this);
+    this.handleRecoChange = this.handleRecoChange.bind(this);
   }
 
     
@@ -38,15 +41,15 @@ class Vote extends Component {
     
 
   handleEthChange(event) {
-      this.setState({etherAddress: event.target.value});
+    this.setState({etherAddress: event.target.value});
   }
 
   handleVoteChange(event) {
     this.setState({ voteUrl: event.target.value });
   }
 
-  handleRecoChange = (event) => {
-      this.setState({recommenderAddress: event.target.value});
+  handleRecoChange(event) {
+    this.setState({recommenderAddress: event.target.value});
   }
     
   handleSubmit(event) {
@@ -56,7 +59,7 @@ class Vote extends Component {
       return false;
     }
     window.localStorage.setItem('ethAddress', this.state.etherAddress);
-    db.collection('vote').add({
+    this.state.db.collection('vote').add({
       ether_address: this.state.etherAddress,
       recommender_address: this.state.recommenderAddress,
       user: null,
@@ -81,7 +84,8 @@ class Vote extends Component {
           <span className='beforeInput'>입력하기 전에 확인해주세요</span><br />
           <a className='tutorial' href='https://steemit.com/mytokendiary/@ryugihyeok/mytokendiary-feat-metamask-1-2'>MetaMask 지갑 만들기</a><br />
           <a className='tutorial' href='https://steemit.com/mytokendiary/@ryugihyeok/mytokendiary-feat-facebook-instagram-1-2'>인증샷 URL 복사하기</a><br />
-          <a className='tutorial' href='https://steemit.com/mytokendiary/@ryugihyeok/mytokendiary-mytokendiary'>MyTokenDiary란</a>
+          <a className='tutorial' href='https://steemit.com/mytokendiary/@ryugihyeok/mytokendiary-mytokendiary'>MyTokenDiary란</a><br/>
+          <span className='red-text'>후원 주소 : 0xE484C512c156C7F30C85CF432b8E2E70Fd499058</span>
         </div>
         <form onSubmit={this.handleSubmit}>
           {/* 이더리움 지갑 주소 로그인<br/> */}
