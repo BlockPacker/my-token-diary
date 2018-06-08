@@ -57,7 +57,7 @@ class Vote extends Component {
       return false;
     }
     window.localStorage.setItem('ethAddress', this.state.etherAddress);
-    this.state.db.collection('vote').add({
+    db.collection('vote').add({
       ether_address: this.state.etherAddress,
       recommender_address: this.state.recommenderAddress,
       user: null,
