@@ -1,20 +1,9 @@
 import React, { Component } from 'react'
 import getWeb3 from '../utils/getWeb3';
-
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import db from '../utils/firebase';
 
 import './vote.css'
 
-firebase.initializeApp({
-  apiKey: 'AIzaSyAqF_ts74PnuemldvOJVoYaGb0oelIKmxM',
-  authDomain: "mytokendiray.firebaseapp.com",
-  databaseURL: "https://mytokendiray.firebaseio.com",
-  projectId: "mytokendiray",
-  storageBucket: "mytokendiray.appspot.com",
-  messagingSenderId: "403467372211"
-});
-const db = firebase.firestore();
 const settings = {timestampsInSnapshots: true};
 db.settings(settings);
 

@@ -1,36 +1,45 @@
 import React, { Component } from 'react';
 
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-
-if (!firebase.apps.length) {
-  firebase.initializeApp({
-    apiKey: 'AIzaSyAqF_ts74PnuemldvOJVoYaGb0oelIKmxM',
-    authDomain: "mytokendiray.firebaseapp.com",
-    databaseURL: "https://mytokendiray.firebaseio.com",
-    projectId: "mytokendiray",
-    storageBucket: "mytokendiray.appspot.com",
-    messagingSenderId: "403467372211"
-  });
-}
-
-const db = firebase.firestore();
-
-db.collection('vote').where('done', '==', 'false')
-  .get()
-  .then(function (querySnapshot) {
-    querySnapshot.forEach(function (doc) {
-      console.log(doc.data());
-    });
-  })
-  .catch(function (error) {
-    console.log('ERROR');
-  });
+import db from '../utils/firebase';
 
 class Admin extends Component {
+  constructor (props) {
+    super(props);
+    
+    this.state = {
+      data: []
+    };
+
+    this.handleData = this.handleData.bind(this);
+  }
+
+  componentDidMount() {
+    const self = this;
+    const data = [];
+    db.collection('vote').where('done', '==', false)
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(function (doc) {
+          data.push(doc.data());
+          console.log(doc.data());
+        });
+
+        self.setState({data: data});
+        console.log(self.state.data);
+      })
+      .catch(function (error) {
+        console.log('ERROR');
+      });
+  }
+
+  handleData(event) {
+    // this.state.data = event.target.value;
+  }
   render() {
     return (
-      <span>TEST</span>
+      <div>
+        {this.state.data.forEach(el => <span>{el.ether_address}, {el.recommenderAddress}, {el.vote_url}</span>)}
+      </div>
     )
   }
 }
